@@ -31,7 +31,7 @@ public class Task1 {
     }
 
     public static int ctoa(char symbol){
-        return (int) symbol;
+        return symbol;
     }
 
     public static int addUpTo(int num){
@@ -55,8 +55,7 @@ public class Task1 {
     }
 
     public static boolean abcmath(int a, int b, int c){
-        if ((a + a * b) % c == 0) return true;
-        else return false;
+        return ((a + a * b) % c == 0);
     }
 
     public static void main(String[] args) {
