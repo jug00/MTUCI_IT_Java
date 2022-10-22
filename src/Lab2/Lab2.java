@@ -10,23 +10,28 @@ public class Lab2 {
         for (int i = 0; i < 3; i++) {
             array[i] = input.nextDouble();
         }
-        Point3d first = new Point3d(array[0],array[1],array[2]);
+        Point3d point1 = new Point3d(array[0],array[1],array[2]);
         System.out.println("Введите три коорднинаты второй точки: ");
         for (int i = 0; i < 3; i++) {
             array[i] = input.nextDouble();
         }
-        Point3d second = new Point3d(array[0],array[1],array[2]);
+        Point3d point2 = new Point3d(array[0],array[1],array[2]);
         System.out.println("Введите три коорднинаты третьей точки: ");
         for (int i = 0; i < 3; i++) {
             array[i] = input.nextDouble();
         }
-        Point3d third = new Point3d(array[0],array[1],array[2]);
-        if ((first.getX() == second.getX() && first.getY() == second.getY() && first.getZ() == second.getZ()) ||
-                (first.getX() == third.getX() && first.getY() == third.getY() && first.getZ() == third.getZ()) ||
-                (second.getX() == third.getX() && second.getY() == third.getY() && second.getZ() == third.getZ())) {
+        Point3d point3 = new Point3d(array[0],array[1],array[2]);
+        if ((point1.getX() == point2.getX() && point1.getY() == point2.getY() && point1.getZ() == point2.getZ()) ||
+                (point1.getX() == point3.getX() && point1.getY() == point3.getY() && point1.getZ() == point3.getZ()) ||
+                (point2.getX() == point3.getX() && point2.getY() == point3.getY() && point2.getZ() == point3.getZ())) {
             System.out.println("Введены одинаковые точки");
         }
-        else System.out.println(computeArea(first, second,third));
+        else {
+            System.out.println("Длина стороны a - " + point1.distanceTo(point2));
+            System.out.println("Длина стороны b - " + point2.distanceTo(point3));
+            System.out.println("Длина стороны c - " + point3.distanceTo(point1));
+            System.out.println("Площадь треугольника - " + computeArea(point1, point2, point3));
+        }
     }
     public static double computeArea(Point3d point1, Point3d point2, Point3d point3){
         double a = Math.sqrt(Math.pow(point1.getX() - point2.getX(), 2) + Math.pow(point1.getY() - point2.getY(), 2)
