@@ -19,9 +19,15 @@ public class Point3d extends Point2d{
     public void setZ(double val) {
         zCoord = val;
     }
-    public String distanceTo(Point3d point){
-        return String.format("%.2f",Math.sqrt(Math.pow(this.getX() - point.getX(), 2)
+    public double distanceTo(Point3d point){
+        return Double.parseDouble(String.format("%.2f",Math.sqrt(Math.pow(this.getX() - point.getX(), 2)
                 + Math.pow(this.getY() - point.getY(), 2)
-                + Math.pow(this.getZ() - point.getZ(), 2)));
+                + Math.pow(this.getZ() - point.getZ(), 2))).replace(",","."));
+    }
+    public boolean equalS(Point3d point){
+        if ((this.getX() == point.getX() && this.getY() == point.getY() && this.getZ() == point.getZ())){
+            return true;
+        }
+        return false;
     }
 }

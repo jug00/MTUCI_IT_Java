@@ -21,9 +21,7 @@ public class Lab2 {
             array[i] = input.nextDouble();
         }
         Point3d point3 = new Point3d(array[0],array[1],array[2]);
-        if ((point1.getX() == point2.getX() && point1.getY() == point2.getY() && point1.getZ() == point2.getZ()) ||
-                (point1.getX() == point3.getX() && point1.getY() == point3.getY() && point1.getZ() == point3.getZ()) ||
-                (point2.getX() == point3.getX() && point2.getY() == point3.getY() && point2.getZ() == point3.getZ())) {
+        if (point1.equalS(point2) || point1.equalS(point3) || point2.equalS(point3)){
             System.out.println("Введены одинаковые точки");
         }
         else {
@@ -34,12 +32,9 @@ public class Lab2 {
         }
     }
     public static double computeArea(Point3d point1, Point3d point2, Point3d point3){
-        double a = Math.sqrt(Math.pow(point1.getX() - point2.getX(), 2) + Math.pow(point1.getY() - point2.getY(), 2)
-                + Math.pow(point1.getZ() - point2.getZ(), 2));
-        double b = Math.sqrt(Math.pow(point2.getX() - point3.getX(), 2) + Math.pow(point2.getY() - point3.getY(), 2)
-                + Math.pow(point2.getZ() - point3.getZ(), 2));
-        double c = Math.sqrt(Math.pow(point3.getX() - point1.getX(), 2) + Math.pow(point3.getY() - point1.getY(), 2)
-                + Math.pow(point3.getZ() - point1.getZ(), 2));
+        double a = point1.distanceTo(point2);
+        double b = point2.distanceTo(point3);
+        double c = point3.distanceTo(point1);
         double p = (a + b + c) / 2;
         return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
