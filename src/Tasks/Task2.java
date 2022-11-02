@@ -25,8 +25,10 @@ public class Task2 {
 
     public static int[] cumulativeSum(int[] array){
         int[] res = new int[array.length];
+        int sum = 0;
         for (int i = 0; i < array.length; i++) {
-            res[i] = Arrays.stream(Arrays.copyOfRange(array, 0, i+1)).sum();
+            sum += array[i];
+            res[i] = sum;
         }
         return res;
     }
