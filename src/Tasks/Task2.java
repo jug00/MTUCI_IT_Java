@@ -66,13 +66,11 @@ public class Task2 {
     }
 
     public static boolean isPrefix(String word, String prefix){
-        if (prefix.equals(word.substring(0, prefix.length() - 1) + "-")) return true;
-        else return false;
+        return (word.startsWith(prefix.substring(0, prefix.length()-1)));
     }
 
     public static boolean isSuffix(String word, String suffix){
-        if (suffix.equals("-" + word.substring(suffix.length()))) return true;
-        else return false;
+        return (word.endsWith(suffix.substring(1)));
     }
 
     public static int boxSeq(int n){
