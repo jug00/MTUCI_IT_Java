@@ -2,8 +2,7 @@ package Tasks;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.IntStream;
+
 
 public class Task3 {
     public static int solutions(int a, int b, int c){
