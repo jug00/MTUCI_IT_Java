@@ -2,13 +2,13 @@ package Lab4;
 
 import java.awt.geom.Rectangle2D;
 
-public class Mandelbrot extends FractalGenerator{
+public class BurningShip extends FractalGenerator{
 
     public static final int MAX_ITERATIONS = 2000;
 
     @Override
     public void getInitialRange(Rectangle2D.Double range) {
-        range.setRect(-2, -1.5,3,3);
+        range.setRect(-2, -2,3.5,3.5);
     }
 
     @Override
@@ -17,7 +17,7 @@ public class Mandelbrot extends FractalGenerator{
         ComplexNumber z = new ComplexNumber(0, 0);
         ComplexNumber c = new ComplexNumber(x, y);
         while (z.getModulusSquared() < 4){
-            z = z.getSquare().add(c);
+            z = z.getSquareModulusNumbers().add(c);
             i += 1;
             if (i == MAX_ITERATIONS){return -1;}
         }
@@ -26,6 +26,6 @@ public class Mandelbrot extends FractalGenerator{
 
     @Override
     public String toString() {
-        return "Mandelbort";
+        return "BurningShip";
     }
 }

@@ -1,9 +1,15 @@
 package Lab4;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class FractalExplorer {
 
@@ -25,12 +31,32 @@ public class FractalExplorer {
         JFrame jFrame = new JFrame("Fractal Explorer");
         jFrame.add(jImageDisplay, BorderLayout.CENTER);
 
+        JPanel jPanelSouth = new JPanel();
+        JPanel jPanelNorth = new JPanel();
+
         JButton resetButton = new JButton("Reset");
-        jFrame.add(resetButton, BorderLayout.SOUTH);
+        jPanelSouth.add(resetButton);
+
+        JButton saveButton = new JButton("Save Image");
+        jPanelSouth.add(saveButton);
+
+        JLabel jLabelFractal = new JLabel("Fractal:");
+        jPanelNorth.add(jLabelFractal);
+
+        JComboBox jComboBoxFractals = new JComboBox();
+        jComboBoxFractals.addItem(new Mandelbrot());
+        jComboBoxFractals.addItem(new Tricorn());
+        jComboBoxFractals.addItem(new BurningShip());
+        jPanelNorth.add(jComboBoxFractals);
+
+        jFrame.add(jPanelSouth, BorderLayout.SOUTH);
+        jFrame.add(jPanelNorth, BorderLayout.NORTH);
 
         ButtonHandler buttonHandler = new ButtonHandler();
         MouseHandler click = new MouseHandler();
 
+        saveButton.addActionListener(buttonHandler);
+        jComboBoxFractals.addActionListener(buttonHandler);
         resetButton.addActionListener(buttonHandler);
         jImageDisplay.addMouseListener(click);
 
@@ -66,9 +92,31 @@ public class FractalExplorer {
             if (action.equals("Reset")) {
                 fractal.getInitialRange(range);
                 drawFractal();
+            } else if (action.equals("comboBoxChanged")) {
+                JComboBox source = (JComboBox) e.getSource();
+                fractal = (FractalGenerator) source.getSelectedItem();
+                fractal.getInitialRange(range);
+                drawFractal();
+            } else if (action.equals("Save Image")) {
+                JFileChooser chooser = new JFileChooser();
+                FileFilter filter = new FileNameExtensionFilter("PNG Images", "png");
+                chooser.setFileFilter(filter);
+                chooser.setAcceptAllFileFilterUsed(false);
+                int result = chooser.showSaveDialog(jImageDisplay);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File file = chooser.getSelectedFile();
+                    BufferedImage image = jImageDisplay.getBufferedImage();
+                    try {
+                        ImageIO.write(image, "png", file);
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(jImageDisplay,
+                                ex.getMessage(), "Cannot Save Image",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                }
             }
         }
-    }
+        }
 
     private class MouseHandler extends MouseAdapter {
         public void mouseClicked(MouseEvent e){

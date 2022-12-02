@@ -15,6 +15,10 @@ class JImageDisplay extends JComponent {
 
     }
 
+    public BufferedImage getBufferedImage(){
+        return displayImage;
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

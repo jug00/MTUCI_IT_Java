@@ -33,4 +33,16 @@ public class ComplexNumber {
         return this;
     }
 
+    public ComplexNumber getSquareConjugation(){
+        double newRealNumber = realNumber*realNumber - imaginaryUnit*imaginaryUnit;
+        double newImaginaryUnit = -2*realNumber*imaginaryUnit;
+        return new ComplexNumber(newRealNumber, newImaginaryUnit);
+    }
+
+    public ComplexNumber getSquareModulusNumbers(){
+        double newRealNumber = realNumber*realNumber - imaginaryUnit*imaginaryUnit;
+        double newImaginaryUnit = 2 * Math.abs(realNumber) * Math.abs(imaginaryUnit);
+        return new ComplexNumber(newRealNumber, newImaginaryUnit);
+    }
+
 }
