@@ -114,6 +114,7 @@ public class Task3 {
         return false;
     }
 
+
     public static void main(String[] args) {
         System.out.println("1  - " + solutions(1, 0, 1));
         System.out.println("2  - " + findZip("all zip files are compressed"));
