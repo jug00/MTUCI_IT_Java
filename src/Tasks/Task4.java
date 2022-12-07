@@ -202,16 +202,16 @@ public class Task4 {
 
 
     public static void main(String[] args) {
-        System.out.println(bessie(10,7, "hello my name is Bessie and this is my essay"));
-        System.out.println(Arrays.toString(split("((())())(()(()()))")));
-        System.out.println(toCamelCase("hello_edabit"));
-        System.out.println(toSnakeCase("helloEdabit"));
-        System.out.println(overTime(13.25, 15, 30, 1.5));
-        System.out.println(BMI("154 pounds", "2 meters"));
-        System.out.println(bugger(39));
-        System.out.println(toStarShorthand(("abbccc")));
-        System.out.println(doesRhyme("Sam I am!", "Green eggs and ham."));
-        System.out.println(trouble(53242225, 452322));
-        System.out.println(countUniqueBooks("AZYWABBCATTTA", 'A'));
+        System.out.println("1  - " + bessie(10,7, "hello my name is Bessie and this is my essay"));
+        System.out.println("2  - " + Arrays.toString(split("((())())(()(()()))")));
+        System.out.println("3  - " + toCamelCase("hello_edabit"));
+        System.out.println("3  - " + toSnakeCase("helloEdabit"));
+        System.out.println("4  - " + overTime(13.25, 15, 30, 1.5));
+        System.out.println("5  - " + BMI("154 pounds", "2 meters"));
+        System.out.println("6  - " + bugger(39));
+        System.out.println("7  - " + toStarShorthand(("abbccc")));
+        System.out.println("8  - " + doesRhyme("Sam I am!", "Green eggs and ham."));
+        System.out.println("9  - " + trouble(53242225, 452322));
+        System.out.println("10 - " + countUniqueBooks("AZYWABBCATTTA", 'A'));
     }
 }

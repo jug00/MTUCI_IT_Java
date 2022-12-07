@@ -1,9 +1,6 @@
 package Tasks;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Task5 {
     // 1 задание
@@ -61,23 +58,23 @@ public class Task5 {
         HashSet<Character> e_set = new HashSet<>();
         HashSet<Character> set = new HashSet<>();
         ArrayList<String> fin_array = new ArrayList<>();
-        List vowelsList = Arrays.asList('A', 'E', 'I', 'O', 'U', 'Y', 'a', 'e', 'i', 'o', 'y');
+        HashSet<Character> vowelsList = new HashSet<>(Arrays.asList('A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o'));
         for (int i = 0; i < array[0].length(); i++) {
-            System.out.println(array[0].charAt(i));
-            e_set.add(array[0].charAt(i));
+            if (vowelsList.contains(array[0].charAt(i))) {
+                e_set.add(array[0].charAt(i));
+            }
         }
+        fin_array.add(array[0]);
         for (int i = 1; i < array.length; i++) {
             for (int j = 0; j < array[i].length(); j++) {
-                if (vowelsList.contains(array[i].charAt(j))) ;
+                if (vowelsList.contains(array[i].charAt(j)))
                 {
                     set.add(array[i].charAt(j));
                 }
-                if (e_set.equals(set)) {
-                    fin_array.add(array[i]);
-                }
             }
-            System.out.println(Arrays.toString(e_set.toArray()));
-            System.out.println(Arrays.toString(set.toArray()));
+            if (e_set.equals(set)) {
+                fin_array.add(array[i]);
+            }
             set.clear();
         }
         return fin_array;
@@ -87,6 +84,6 @@ public class Task5 {
         System.out.println(Arrays.toString(encrypt("Hello")));
         System.out.println(decrypt(new int[]{72, 29, 7, 0, 3}));
         System.out.println(sumDigProd(16, 28));
-        System.out.println(sameVowelGroup(new String[]{"toe", "ocelot", "maniac"}));
+        System.out.println(sameVowelGroup(new String[]{"many", "carriage", "emit", "apricot", "animal"}));
     }
 }

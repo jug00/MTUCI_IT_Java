@@ -132,7 +132,7 @@ public class FractalExplorer {
 
     public static void main(String[] args)
     {
-        FractalExplorer fractalExplorer = new FractalExplorer(800);
+        FractalExplorer fractalExplorer = new FractalExplorer(700);
         fractalExplorer.createAndShowGUI();
         fractalExplorer.drawFractal();
     }
