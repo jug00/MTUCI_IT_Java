@@ -130,13 +130,6 @@ public class FractalExplorer {
         jComboBoxFractals.setEnabled(val);
     }
 
-    public static void main(String[] args)
-    {
-        FractalExplorer fractalExplorer = new FractalExplorer(700);
-        fractalExplorer.createAndShowGUI();
-        fractalExplorer.drawFractal();
-    }
-
     private class FractalWorker extends SwingWorker<Object, Object>{
 
         int yCoord;
@@ -176,5 +169,12 @@ public class FractalExplorer {
             }
         }
         }
+
+    public static void main(String[] args)
+    {
+        FractalExplorer fractalExplorer = new FractalExplorer(700);
+        fractalExplorer.createAndShowGUI();
+        fractalExplorer.drawFractal();
+    }
     }
 
