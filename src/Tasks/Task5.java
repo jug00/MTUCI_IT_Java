@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
-import java.util.stream.IntStream;
 
 public class Task5 {
     // 1 задание
@@ -93,8 +92,9 @@ public class Task5 {
                         return true;
                     }
                 case "pawn":
-                    if (((indexStartLine == 1 || indexStartLine == 6) && Math.abs(indexEndLine - indexStartLine) <= 2 && Math.abs(indexEndRow - indexStartRow) == 0)
-                        || (Math.abs(indexEndLine - indexStartLine) <= 1 && Math.abs(indexEndRow - indexStartRow) == 0)){
+                    if (((indexStartLine == 1 || indexStartLine == 6)
+                            && Math.abs(indexEndLine - indexStartLine) <= 2 && Math.abs(indexEndRow - indexStartRow) == 0)
+                            || (Math.abs(indexEndLine - indexStartLine) <= 1 && Math.abs(indexEndRow - indexStartRow) == 0)){
                         return true;
                     }
             }
@@ -443,17 +443,17 @@ public class Task5 {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        System.out.println(Arrays.toString(encrypt("Hello")));
-        System.out.println(decrypt(new int[]{72, 29, 7, 0, 3}));
-        System.out.println(camMove("Pawn", "C3", "C5"));
-        System.out.println(canComplete("bbutl", "beautiful"));
-        System.out.println(sumDigProd(16, 28));
-        System.out.println(sameVowelGroup(new String[]{"many", "carriage", "emit", "apricot", "animal"}));
-        System.out.println(validateCard(1234567890123452l));
-        System.out.println(numToEng(0));
-        System.out.println(numToRus(909));
-        System.out.println(getSha256Hash("Fluffy@home"));
-        System.out.println(correctTitle("sansa stark, lady of winterfell."));
-        System.out.println(hexLattice(7));
+        System.out.println("1  - " + Arrays.toString(encrypt("Hello")));
+        System.out.println("1  - " + decrypt(new int[]{72, 29, 7, 0, 3}));
+        System.out.println("2  - " + camMove("Pawn", "C3", "C5"));
+        System.out.println("3  - " + canComplete("bbutl", "beautiful"));
+        System.out.println("4  - " + sumDigProd(16, 28));
+        System.out.println("5  - " + sameVowelGroup(new String[]{"many", "carriage", "emit", "apricot", "animal"}));
+        System.out.println("6  - " + validateCard(1234567890123452l));
+        System.out.println("7  - " + numToEng(255));
+        System.out.println("7  - " + numToRus(404));
+        System.out.println("8  - " + getSha256Hash("Fluffy@home"));
+        System.out.println("9  - " + correctTitle("sansa stark, lady of winterfell."));
+        System.out.println("10 - \n" + hexLattice(37));
     }
 }
