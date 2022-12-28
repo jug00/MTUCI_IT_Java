@@ -48,7 +48,7 @@ public class CrawlerTask implements Runnable {
                     request(out,currentPair);
                     String line;
                     while ((line = in.readLine()) != null){
-                        if (line.indexOf(currentPair.URL_PREFIX)!=-1) {
+                        if (line.contains(currentPair.URL_PREFIX)) {
                             buildNewUrl(line,currentPair.getDepth(),urlPool);
                         }
                     }

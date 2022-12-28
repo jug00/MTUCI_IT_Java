@@ -1,7 +1,6 @@
 package Tasks;
 
 import java.util.*;
-import java.util.regex.Pattern;
 
 public class Task6 {
     // 1 Задание

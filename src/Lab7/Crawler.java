@@ -37,7 +37,7 @@ public class Crawler {
                     request(out, currentPair);
                     String line;
                     while ((line = in.readLine()) != null) {
-                        if (line.indexOf(currentPair.URL_PREFIX) != -1 && line.indexOf('"') != -1) {
+                        if (line.contains(currentPair.URL_PREFIX) && line.indexOf('"') != -1) {
                             StringBuilder currentLink = new StringBuilder();
                             int i = line.indexOf(currentPair.URL_PREFIX);
                             while (line.charAt(i) != '"' && line.charAt(i) != ' ') {

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Crawler {
     public static void showResult(LinkedList<URLDepthPair> resultLink) {
         for (URLDepthPair c : resultLink)
-            System.out.println("Depth :" + c.getDepth()+"\tLink :"+c.getURL());
+            System.out.println("Depth :" + c.getDepth() + "\tLink :" + c.getURL());
     }
 
     public static boolean checkDigit(String line) {
@@ -16,8 +16,8 @@ public class Crawler {
     }
 
     public static void main(String[] args) {
-        args = new String[]{"http://www.vulnweb.com/", "10", "10"};
-        if (args.length == 3 && checkDigit(args[1]) && checkDigit(args[2])) {
+        args = new String[]{"http://www.testingmcafeesites.com/", "5", "10"};
+        if (checkDigit(args[1]) && checkDigit(args[2])) {
             String lineUrl = args[0];
             int numThreads = Integer.parseInt(args[2]);
             URLPool pool = new URLPool(Integer.parseInt(args[1]));
@@ -36,7 +36,7 @@ public class Crawler {
                 }
             }
             try {
-                showResult(pool.getResult());;
+                showResult(pool.getResult());
             } catch (NullPointerException e) {
                 System.out.println("Not Link");
             }
